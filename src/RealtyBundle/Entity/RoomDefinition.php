@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity;
+namespace App\RealtyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\RoomDefinitionRepository;
+use App\RealtyBundle\Repository\RoomDefinitionRepository;
 
 #[ORM\Entity(repositoryClass: RoomDefinitionRepository::class)]
 class RoomDefinition

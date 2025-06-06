@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repository;
+namespace App\RealtyBundle\Repository;
 
-use App\Entity\Attribute;
+use App\RealtyBundle\Entity\Attribute;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 

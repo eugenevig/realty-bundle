@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity;
+namespace App\RealtyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\RoomRepository;
+use App\RealtyBundle\Repository\RoomRepository;
 use App\Entity\RealEstateObject;
 use App\Entity\RoomDefinition;
 

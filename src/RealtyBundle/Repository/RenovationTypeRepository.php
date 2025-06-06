@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repository;
+namespace App\RealtyBundle\Repository;
 
-use App\Entity\RenovationType;
+use App\RealtyBundle\Entity\RenovationType;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 

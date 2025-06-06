@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity;
+namespace App\RealtyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\StatusRepository;
+use App\RealtyBundle\Repository\StatusRepository;
 
 #[ORM\Entity(repositoryClass: StatusRepository::class)]
 class Status

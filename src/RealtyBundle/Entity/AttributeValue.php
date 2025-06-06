@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity;
+namespace App\RealtyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\AttributeValueRepository;
+use App\RealtyBundle\Repository\AttributeValueRepository;
 use App\Entity\Attribute;
 use App\Entity\RealEstateObject;
 

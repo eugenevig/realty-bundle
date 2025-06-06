@@ -27,3 +27,5 @@ services:
         class: Doctrine\Common\Annotations\AnnotationReader
 
 
+    App\RealtyBundle\:
+        resource: '../src/RealtyBundle/'

@@ -45,7 +45,8 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "App\\": "src/",
+            "App\\RealtyBundle\\": "src/RealtyBundle/"
         }
     },
     "autoload-dev": {

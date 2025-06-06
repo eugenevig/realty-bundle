@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity;
+namespace App\RealtyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\BuildingRepository;
+use App\RealtyBundle\Repository\BuildingRepository;
 
 #[ORM\Entity(repositoryClass: BuildingRepository::class)]
 class Building

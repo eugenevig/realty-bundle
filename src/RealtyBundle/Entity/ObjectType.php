@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity;
+namespace App\RealtyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\ObjectTypeRepository;
+use App\RealtyBundle\Repository\ObjectTypeRepository;
 
 #[ORM\Entity(repositoryClass: ObjectTypeRepository::class)]
 class ObjectType

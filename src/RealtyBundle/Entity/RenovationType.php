@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity;
+namespace App\RealtyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\RenovationTypeRepository;
+use App\RealtyBundle\Repository\RenovationTypeRepository;
 
 #[ORM\Entity(repositoryClass: RenovationTypeRepository::class)]
 class RenovationType

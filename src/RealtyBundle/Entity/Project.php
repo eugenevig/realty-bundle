@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Entity;
+namespace App\RealtyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\ProjectRepository;
+use App\RealtyBundle\Repository\ProjectRepository;
 
 #[ORM\Entity(repositoryClass: ProjectRepository::class)]
+
 class Project
 {
     #[ORM\Id]

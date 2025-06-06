@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity;
+namespace App\RealtyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\DocumentRepository;
+use App\RealtyBundle\Repository\DocumentRepository;
 use App\Entity\RealEstateObject;
 
 #[ORM\Entity(repositoryClass: DocumentRepository::class)]

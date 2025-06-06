@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity;
+namespace App\RealtyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\ListingTypeRepository;
+use App\RealtyBundle\Repository\ListingTypeRepository;
 
 #[ORM\Entity(repositoryClass: ListingTypeRepository::class)]
 class ListingType
