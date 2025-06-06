@@ -24,4 +24,49 @@ class RoomDefinition
 
     #[ORM\Column(type: 'integer', nullable: true)]
     private ?int $sortOrder = null;
+
+    public function getId() {
+        return $this->id;
+    }
+
+    public function setId($value) {
+        $this->id = $value;
+        return $this;
+    }
+
+    public function getName() {
+        return $this->name;
+    }
+
+    public function setName($value) {
+        $this->name = $value;
+        return $this;
+    }
+
+    public function getHasGallery() {
+        return $this->hasGallery;
+    }
+
+    public function setHasGallery($value) {
+        $this->hasGallery = $value;
+        return $this;
+    }
+
+    public function getHasArea() {
+        return $this->hasArea;
+    }
+
+    public function setHasArea($value) {
+        $this->hasArea = $value;
+        return $this;
+    }
+
+    public function getSortOrder() {
+        return $this->sortOrder;
+    }
+
+    public function setSortOrder($value) {
+        $this->sortOrder = $value;
+        return $this;
+    }
 }

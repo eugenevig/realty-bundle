@@ -4,8 +4,8 @@ namespace App\RealtyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use App\RealtyBundle\Repository\RoomRepository;
-use App\Entity\RealEstateObject;
-use App\Entity\RoomDefinition;
+use App\RealtyBundle\Entity\RealEstateObject;
+use App\RealtyBundle\Entity\RoomDefinition;
 
 #[ORM\Entity(repositoryClass: RoomRepository::class)]
 class Room
@@ -31,4 +31,58 @@ class Room
 
     #[ORM\Column(type: 'json', nullable: true)]
     private ?array $gallery = [];
+
+    public function getId() {
+        return $this->id;
+    }
+
+    public function setId($value) {
+        $this->id = $value;
+        return $this;
+    }
+
+    public function getRealEstateObject() {
+        return $this->realEstateObject;
+    }
+
+    public function setRealEstateObject($value) {
+        $this->realEstateObject = $value;
+        return $this;
+    }
+
+    public function getRoomDefinition() {
+        return $this->roomDefinition;
+    }
+
+    public function setRoomDefinition($value) {
+        $this->roomDefinition = $value;
+        return $this;
+    }
+
+    public function getCustomName() {
+        return $this->customName;
+    }
+
+    public function setCustomName($value) {
+        $this->customName = $value;
+        return $this;
+    }
+
+    public function getArea() {
+        return $this->area;
+    }
+
+    public function setArea($value) {
+        $this->area = $value;
+        return $this;
+    }
+
+    public function getGallery() {
+        return $this->gallery;
+    }
+
+    public function setGallery($value) {
+        $this->gallery = $value;
+        return $this;
+    }
 }

@@ -4,7 +4,7 @@ namespace App\RealtyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use App\RealtyBundle\Repository\DocumentRepository;
-use App\Entity\RealEstateObject;
+use App\RealtyBundle\Entity\RealEstateObject;
 
 #[ORM\Entity(repositoryClass: DocumentRepository::class)]
 class Document
@@ -23,4 +23,40 @@ class Document
 
     #[ORM\Column(type: 'string', length: 255)]
     private string $filePath;
+
+    public function getId() {
+        return $this->id;
+    }
+
+    public function setId($value) {
+        $this->id = $value;
+        return $this;
+    }
+
+    public function getRealEstateObject() {
+        return $this->realEstateObject;
+    }
+
+    public function setRealEstateObject($value) {
+        $this->realEstateObject = $value;
+        return $this;
+    }
+
+    public function getTitle() {
+        return $this->title;
+    }
+
+    public function setTitle($value) {
+        $this->title = $value;
+        return $this;
+    }
+
+    public function getFilePath() {
+        return $this->filePath;
+    }
+
+    public function setFilePath($value) {
+        $this->filePath = $value;
+        return $this;
+    }
 }

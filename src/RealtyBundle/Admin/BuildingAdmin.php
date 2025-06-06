@@ -1,0 +1,53 @@
+<?php
+
+namespace App\RealtyBundle\Admin;
+
+use App\RealtyBundle\Entity\Building;
+use Sonata\AdminBundle\Admin\AbstractAdmin;
+use Sonata\AdminBundle\Datagrid\ListMapper;
+use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Datagrid\DatagridMapper;
+use Sonata\AdminBundle\Form\Type\ModelType;
+
+class BuildingAdmin extends AbstractAdmin
+{
+    protected function configureFormFields(FormMapper $form): void
+    {
+        $form
+            ->add('internalId')
+            ->add('externalId')
+            ->add('section')
+            ->add('buildingNumber')
+            ->add('country')
+            ->add('region')
+            ->add('city')
+            ->add('district')
+            ->add('street')
+            ->add('coordinates', null, ['required' => false])
+            ->add('buildingType', null, ['required' => false])
+            ->add('yearBuilt', null, ['widget' => 'single_text'])
+            ->add('plannedDeliveryDate', null, ['widget' => 'single_text'])
+            ->add('gallery', null, ['required' => false])
+            ->add('project', ModelType::class)
+        ;
+    }
+
+    protected function configureDatagridFilters(DatagridMapper $filter): void
+    {
+        $filter
+            ->add('internalId')
+            ->add('buildingNumber')
+            ->add('city')
+        ;
+    }
+
+    protected function configureListFields(ListMapper $list): void
+    {
+        $list
+            ->addIdentifier('buildingNumber')
+            ->add('internalId')
+            ->add('city')
+            ->add('project')
+        ;
+    }
+}
