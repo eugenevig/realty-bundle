@@ -19,6 +19,10 @@ class ProjectAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $form): void
     {
         $form
+            ->add('country')
+            ->add('region')
+            ->add('city')
+            ->add('district')
             ->add('externalId')
             ->add('name')
             ->add('description')

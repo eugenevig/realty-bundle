@@ -2,6 +2,7 @@
 
 namespace App\RealtyBundle\Entity;
 
+use App\RealtyBundle\Entity\Country;
 use Doctrine\ORM\Mapping as ORM;
 use App\RealtyBundle\Repository\ProjectRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -39,6 +40,19 @@ class Project
 
     #[ORM\OneToMany(mappedBy: 'project', targetEntity: Building::class, cascade: ['persist'], orphanRemoval: true)]
     private Collection $buildings;
+
+    #[ORM\ManyToOne(targetEntity: Country::class)]
+    private ?Country $country = null;
+
+    #[ORM\Column(type: "string", length: 255, nullable: true)]
+    private ?string $region = null;
+
+    #[ORM\Column(type: "string", length: 255, nullable: true)]
+    private ?string $city = null;
+
+    #[ORM\Column(type: "string", length: 255, nullable: true)]
+    private ?string $district = null;
+
 
     public function __construct()
     {
@@ -148,9 +162,72 @@ class Project
         return $this;
     }
 
+    /**
+     * @return \App\RealtyBundle\Entity\Country|null
+     */
+    public function getCountry(): ?\App\RealtyBundle\Entity\Country
+    {
+        return $this->country;
+    }
+
+    /**
+     * @param \App\RealtyBundle\Entity\Country|null $country
+     */
+    public function setCountry(?\App\RealtyBundle\Entity\Country $country): void
+    {
+        $this->country = $country;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getRegion(): ?string
+    {
+        return $this->region;
+    }
+
+    /**
+     * @param string|null $region
+     */
+    public function setRegion(?string $region): void
+    {
+        $this->region = $region;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    /**
+     * @param string|null $city
+     */
+    public function setCity(?string $city): void
+    {
+        $this->city = $city;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDistrict(): ?string
+    {
+        return $this->district;
+    }
+
+    /**
+     * @param string|null $district
+     */
+    public function setDistrict(?string $district): void
+    {
+        $this->district = $district;
+    }
+
     public function __toString(): string
     {
         return $this->getName() ?? 'n/a'; // or any suitable property like code, title, etc.
     }
-
 }

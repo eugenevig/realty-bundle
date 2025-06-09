@@ -69,4 +69,9 @@ class RoomDefinition
         $this->sortOrder = $value;
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return $this->name ?? 'n/a';
+    }
 }

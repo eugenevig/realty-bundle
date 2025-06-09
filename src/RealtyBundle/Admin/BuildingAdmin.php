@@ -22,12 +22,7 @@ class BuildingAdmin extends AbstractAdmin
         $form
             ->add('externalId')
             ->add('section')
-            ->add('buildingNumber')
-            ->add('country')
-            ->add('region')
-            ->add('city')
-            ->add('district')
-            ->add('street')
+            ->add('buildingNumber')            ->add('street')
             ->add('coordinates', null, ['required' => false])
             ->add('buildingType', null, ['required' => false])
             ->add('yearBuilt', null, ['widget' => 'single_text'])
@@ -40,18 +35,14 @@ class BuildingAdmin extends AbstractAdmin
     protected function configureDatagridFilters(DatagridMapper $filter): void
     {
         $filter
-            ->add('buildingNumber')
-            ->add('city')
-        ;
+            ->add('buildingNumber')        ;
     }
 
     protected function configureListFields(ListMapper $list): void
     {
         $list
             ->addIdentifier('id')
-            ->add('buildingNumber')
-            ->add('city')
-            ->add('project')
+            ->add('buildingNumber')            ->add('project')
             ->add(ListMapper::NAME_ACTIONS, null, [
                 'actions' => [
                     'edit' => [],

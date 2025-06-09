@@ -37,7 +37,7 @@ class RoomAdmin extends AbstractAdmin
     {
         $list
             ->addIdentifier('id')
-            ->addI('customName')
+            ->add('customName')
             ->add('realEstateObject')
             ->add('roomDefinition')
             ->add('area')
