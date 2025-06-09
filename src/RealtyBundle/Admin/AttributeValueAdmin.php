@@ -27,6 +27,21 @@ class AttributeValueAdmin extends AbstractAdmin
 
     protected function configureListFields(ListMapper $list): void
     {
-        $list->addIdentifier('value')->add('attribute')->add('realEstateObject');
+        $list
+            ->addIdentifier('id')
+            ->add('value')
+            ->add('attribute')
+            ->add('realEstateObject')
+            ->add(ListMapper::NAME_ACTIONS, null, [
+                'actions' => [
+                    'edit' => [],
+                    'delete' => []
+                ]
+            ]);
+    }
+
+    protected function configureRoutes(\Sonata\AdminBundle\Route\RouteCollectionInterface $collection): void
+    {
+        $collection->remove('show');
     }
 }

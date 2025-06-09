@@ -11,10 +11,15 @@ use Sonata\AdminBundle\Form\Type\ModelType;
 
 class BuildingAdmin extends AbstractAdmin
 {
+
+    protected function configureRoutes(\Sonata\AdminBundle\Route\RouteCollectionInterface $collection): void
+    {
+        $collection->remove('show');
+    }
+
     protected function configureFormFields(FormMapper $form): void
     {
         $form
-            ->add('internalId')
             ->add('externalId')
             ->add('section')
             ->add('buildingNumber')
@@ -35,7 +40,6 @@ class BuildingAdmin extends AbstractAdmin
     protected function configureDatagridFilters(DatagridMapper $filter): void
     {
         $filter
-            ->add('internalId')
             ->add('buildingNumber')
             ->add('city')
         ;
@@ -44,10 +48,15 @@ class BuildingAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $list): void
     {
         $list
-            ->addIdentifier('buildingNumber')
-            ->add('internalId')
+            ->addIdentifier('id')
+            ->add('buildingNumber')
             ->add('city')
             ->add('project')
-        ;
+            ->add(ListMapper::NAME_ACTIONS, null, [
+                'actions' => [
+                    'edit' => [],
+                    'delete' => []
+                ]
+            ]);
     }
 }

@@ -10,6 +10,12 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 
 class RoomDefinitionAdmin extends AbstractAdmin
 {
+
+    protected function configureRoutes(\Sonata\AdminBundle\Route\RouteCollectionInterface $collection): void
+    {
+        $collection->remove('show');
+    }
+
     protected function configureFormFields(FormMapper $form): void
     {
         $form->add('name');
@@ -22,6 +28,14 @@ class RoomDefinitionAdmin extends AbstractAdmin
 
     protected function configureListFields(ListMapper $list): void
     {
-        $list->addIdentifier('name');
+        $list
+            ->add('id')
+            ->addIdentifier('name')
+            ->add(ListMapper::NAME_ACTIONS, null, [
+                'actions' => [
+                    'edit' => [],
+                    'delete' => []
+                ]
+            ]);
     }
 }

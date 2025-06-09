@@ -10,6 +10,12 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 
 class RenovationTypeAdmin extends AbstractAdmin
 {
+
+    protected function configureRoutes(\Sonata\AdminBundle\Route\RouteCollectionInterface $collection): void
+    {
+        $collection->remove('show');
+    }
+
     protected function configureFormFields(FormMapper $form): void
     {
         $form->add('name');
@@ -22,6 +28,14 @@ class RenovationTypeAdmin extends AbstractAdmin
 
     protected function configureListFields(ListMapper $list): void
     {
-        $list->addIdentifier('name');
+        $list
+            ->addIdentifier('id')
+            ->add('name')
+            ->add(ListMapper::NAME_ACTIONS, null, [
+                'actions' => [
+                    'edit' => [],
+                    'delete' => []
+                ]
+            ]);
     }
 }

@@ -11,12 +11,17 @@ use Sonata\AdminBundle\Form\Type\ModelType;
 
 class RealEstateObjectAdmin extends AbstractAdmin
 {
+
+    protected function configureRoutes(\Sonata\AdminBundle\Route\RouteCollectionInterface $collection): void
+    {
+        $collection->remove('show');
+    }
+
     protected function configureFormFields(FormMapper $form): void
     {
         $form
             ->add('building', ModelType::class)
             ->add('type', null, ['required' => false])
-            ->add('internalId')
             ->add('externalId', null, ['required' => false])
             ->add('name')
             ->add('description', null, ['required' => false])
@@ -39,7 +44,6 @@ class RealEstateObjectAdmin extends AbstractAdmin
     {
         $filter
             ->add('name')
-            ->add('internalId')
             ->add('building')
             ->add('floor')
         ;
@@ -48,11 +52,16 @@ class RealEstateObjectAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $list): void
     {
         $list
-            ->addIdentifier('name')
-            ->add('internalId')
+            ->addIdentifier('id')
+            ->add('name')
             ->add('building')
             ->add('price')
             ->add('status', null, ['required' => false])
-        ;
+            ->add(ListMapper::NAME_ACTIONS, null, [
+                'actions' => [
+                    'edit' => [],
+                    'delete' => []
+                ]
+            ]);
     }
 }

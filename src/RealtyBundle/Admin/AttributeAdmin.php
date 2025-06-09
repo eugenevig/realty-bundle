@@ -39,25 +39,30 @@ class AttributeAdmin extends AbstractAdmin
 
     protected function configureListFields(ListMapper $list): void
     {
-        $list->addIdentifier('name')->add('inputType', ChoiceType::class, [
-            'choices' => [
-                'Text' => 'text',
-                'Textarea' => 'textarea',
-                'Number' => 'number',
-                'Checkbox' => 'checkbox',
-                'Select (Single)' => 'select',
-                'Multi-select' => 'multiselect',
-                'Date' => 'date',
-            ],
+        $list
+            ->addIdentifier('id')
+            ->add('name')
+            ->add('inputType', ChoiceType::class, [
+                'choices' => [
+                    'Text' => 'text',
+                    'Textarea' => 'textarea',
+                    'Number' => 'number',
+                    'Checkbox' => 'checkbox',
+                    'Select (Single)' => 'select',
+                    'Multi-select' => 'multiselect',
+                    'Date' => 'date',
+                ],
             'placeholder' => 'Select input type',
-        ])
-        ->add('isFilterable')
-        ->add(ListMapper::NAME_ACTIONS, null, [
-            'actions' => [
-                'edit' => [],
-                'delete' => []
-            ]
-        ]);
+            ])
+            ->add('isFilterable', null, [
+                'editable' => true,
+            ])
+            ->add(ListMapper::NAME_ACTIONS, null, [
+                'actions' => [
+                    'edit' => [],
+                    'delete' => []
+                ]
+            ]);
     }
     protected function configureRoutes(\Sonata\AdminBundle\Route\RouteCollectionInterface $collection): void
     {

@@ -10,10 +10,15 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 
 class ProjectAdmin extends AbstractAdmin
 {
+
+    protected function configureRoutes(\Sonata\AdminBundle\Route\RouteCollectionInterface $collection): void
+    {
+        $collection->remove('show');
+    }
+
     protected function configureFormFields(FormMapper $form): void
     {
         $form
-            ->add('internalId')
             ->add('externalId')
             ->add('name')
             ->add('description')
@@ -27,7 +32,6 @@ class ProjectAdmin extends AbstractAdmin
     protected function configureDatagridFilters(DatagridMapper $filter): void
     {
         $filter
-            ->add('internalId')
             ->add('name')
         ;
     }
@@ -35,9 +39,14 @@ class ProjectAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $list): void
     {
         $list
-            ->addIdentifier('name')
-            ->add('internalId')
+            ->addIdentifier('id')
+            ->add('name')
             ->add('externalId')
-        ;
+            ->add(ListMapper::NAME_ACTIONS, null, [
+                'actions' => [
+                    'edit' => [],
+                    'delete' => []
+                ]
+            ]);
     }
 }

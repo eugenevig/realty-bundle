@@ -10,6 +10,7 @@ services:
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        public: false
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
@@ -31,51 +32,61 @@ services:
         resource: '../src/RealtyBundle/'
 
     App\RealtyBundle\Admin\ProjectAdmin:
-        arguments: [~, App\RealtyBundle\Entity\Project, ~]
-        tags: [{ name: sonata.admin, manager_type: orm, label: Project }]
+        arguments: [ ~, App\RealtyBundle\Entity\Project, ~ ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Project }
 
     App\RealtyBundle\Admin\BuildingAdmin:
-        arguments: [~, App\RealtyBundle\Entity\Building, ~]
-        tags: [{ name: sonata.admin, manager_type: orm, label: Building }]
+        arguments: [ ~, App\RealtyBundle\Entity\Building, ~ ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Building }
 
     App\RealtyBundle\Admin\RealEstateObjectAdmin:
-        arguments: [~, App\RealtyBundle\Entity\RealEstateObject, ~]
-        tags: [{ name: sonata.admin, manager_type: orm, label: Real Estate Object }]
-
-    App\RealtyBundle\Admin\ObjectTypeAdmin:
-        arguments: [~, App\RealtyBundle\Entity\ObjectType, ~]
-        tags: [{ name: sonata.admin, manager_type: orm, label: Object Type }]
+        arguments: [ ~, App\RealtyBundle\Entity\RealEstateObject, ~ ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Real Estate Object }
 
     App\RealtyBundle\Admin\StatusAdmin:
-        arguments: [~, App\RealtyBundle\Entity\Status, ~]
-        tags: [{ name: sonata.admin, manager_type: orm, label: Status }]
+        arguments: [ ~, App\RealtyBundle\Entity\Status, ~ ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Status }
+
+    App\RealtyBundle\Admin\ObjectTypeAdmin:
+        arguments: [ ~, App\RealtyBundle\Entity\ObjectType, ~ ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Object Type }
 
     App\RealtyBundle\Admin\ListingTypeAdmin:
-        arguments: [~, App\RealtyBundle\Entity\ListingType, ~]
-        tags: [{ name: sonata.admin, manager_type: orm, label: Listing Type }]
-
-    App\RealtyBundle\Admin\RenovationTypeAdmin:
-        arguments: [~, App\RealtyBundle\Entity\RenovationType, ~]
-        tags: [{ name: sonata.admin, manager_type: orm, label: Renovation Type }]
+        arguments: [ ~, App\RealtyBundle\Entity\ListingType, ~ ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Listing Type }
 
     App\RealtyBundle\Admin\RoomDefinitionAdmin:
-        arguments: [~, App\RealtyBundle\Entity\RoomDefinition, ~]
-        tags: [{ name: sonata.admin, manager_type: orm, label: Room Definition }]
+        arguments: [ ~, App\RealtyBundle\Entity\RoomDefinition, ~ ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Room Definition }
 
     App\RealtyBundle\Admin\RoomAdmin:
-        arguments: [~, App\RealtyBundle\Entity\Room, ~]
-        tags: [{ name: sonata.admin, manager_type: orm, label: Room }]
+        arguments: [ ~, App\RealtyBundle\Entity\Room, ~ ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Room }
 
     App\RealtyBundle\Admin\AttributeAdmin:
-        arguments: [~, App\RealtyBundle\Entity\Attribute, ~]
-        tags: [{ name: sonata.admin, manager_type: orm, label: Attribute }]
+        arguments: [ ~, App\RealtyBundle\Entity\Attribute, ~ ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Attribute }
 
     App\RealtyBundle\Admin\AttributeValueAdmin:
-        arguments: [~, App\RealtyBundle\Entity\AttributeValue, ~]
-        tags: [{ name: sonata.admin, manager_type: orm, label: Attribute Value }]
+        arguments: [ ~, App\RealtyBundle\Entity\AttributeValue, ~ ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Attribute Value }
+
+    App\RealtyBundle\Admin\RenovationTypeAdmin:
+        arguments: [ ~, App\RealtyBundle\Entity\RenovationType, ~ ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Renovation Type }
 
     App\RealtyBundle\Admin\DocumentAdmin:
-        arguments: [~, App\RealtyBundle\Entity\Document, ~]
-        tags: [{ name: sonata.admin, manager_type: orm, label: Document }]
-
-
+        arguments: [ ~, App\RealtyBundle\Entity\Document, ~ ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Document }

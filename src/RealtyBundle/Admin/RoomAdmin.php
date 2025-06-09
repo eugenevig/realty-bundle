@@ -11,6 +11,12 @@ use Sonata\AdminBundle\Form\Type\ModelType;
 
 class RoomAdmin extends AbstractAdmin
 {
+
+    protected function configureRoutes(\Sonata\AdminBundle\Route\RouteCollectionInterface $collection): void
+    {
+        $collection->remove('show');
+    }
+
     protected function configureFormFields(FormMapper $form): void
     {
         $form
@@ -30,10 +36,16 @@ class RoomAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $list): void
     {
         $list
-            ->addIdentifier('customName')
+            ->addIdentifier('id')
+            ->addI('customName')
             ->add('realEstateObject')
             ->add('roomDefinition')
             ->add('area')
-        ;
+            ->add(ListMapper::NAME_ACTIONS, null, [
+                'actions' => [
+                    'edit' => [],
+                    'delete' => []
+                ]
+            ]);
     }
 }

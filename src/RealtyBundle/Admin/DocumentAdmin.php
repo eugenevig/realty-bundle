@@ -11,6 +11,12 @@ use Sonata\AdminBundle\Form\Type\ModelType;
 
 class DocumentAdmin extends AbstractAdmin
 {
+
+    protected function configureRoutes(\Sonata\AdminBundle\Route\RouteCollectionInterface $collection): void
+    {
+        $collection->remove('show');
+    }
+
     protected function configureFormFields(FormMapper $form): void
     {
         $form
@@ -31,9 +37,15 @@ class DocumentAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $list): void
     {
         $list
-            ->addIdentifier('title')
+            ->addIdentifier('id')
+            ->add('title')
             ->add('realEstateObject')
             ->add('filePath')
-        ;
+            ->add(ListMapper::NAME_ACTIONS, null, [
+                'actions' => [
+                    'edit' => [],
+                    'delete' => []
+                ]
+            ]);
     }
 }

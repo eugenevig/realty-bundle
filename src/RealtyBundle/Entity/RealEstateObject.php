@@ -18,9 +18,6 @@ class RealEstateObject
     private ?string $externalId = null;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private string $internalId;
-
-    #[ORM\Column(type: 'string', length: 255)]
     private string $name;
 
     #[ORM\Column(type: 'text', nullable: true)]
@@ -92,15 +89,6 @@ class RealEstateObject
 
     public function setExternalId($value) {
         $this->externalId = $value;
-        return $this;
-    }
-
-    public function getInternalId() {
-        return $this->internalId;
-    }
-
-    public function setInternalId($value) {
-        $this->internalId = $value;
         return $this;
     }
 

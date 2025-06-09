@@ -16,9 +16,6 @@ class Project
     #[ORM\Column(type: 'integer')]
     private int $id;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private string $internalId;
-
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private ?string $externalId = null;
 
@@ -80,15 +77,6 @@ class Project
 
     public function setId($value) {
         $this->id = $value;
-        return $this;
-    }
-
-    public function getInternalId() {
-        return $this->internalId;
-    }
-
-    public function setInternalId($value) {
-        $this->internalId = $value;
         return $this;
     }
 
@@ -155,10 +143,14 @@ class Project
         return $this;
     }
 
-    
-
     public function setBuildings($value) {
         $this->buildings = $value;
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return $this->getName() ?? 'n/a'; // or any suitable property like code, title, etc.
+    }
+
 }
