@@ -60,15 +60,15 @@ class RealEstateObject
     private \DateTimeInterface $updatedAt;
 
     #[ORM\ManyToOne(targetEntity: Building::class, inversedBy: 'realEstateObjects')]
-    #[ORM\JoinColumn(nullable: false)]
-    private Building $building;
+    #[ORM\JoinColumn(nullable: true)]
+    private ?Building $building = null;
 
-    public function getBuilding(): Building
+    public function getBuilding(): ?Building
     {
         return $this->building;
     }
 
-    public function setBuilding(Building $building): self
+    public function setBuilding(?Building $building): self
     {
         $this->building = $building;
         return $this;
